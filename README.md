@@ -1,46 +1,27 @@
-# TP 2 : Gestion des Entites & Cycle de Vie JPA / Hibernate
+# TP 2 : Premiers pas avec JPA & Hibernate (Ikram Mellakh)
 
-Projet de manipulation des entites JPA fondamentales avec **JPA 2.2** et **Hibernate ORM 5.6** sur base de donnees **H2 Database**.
+Projet de manipulation fondamentale de l'ORM JPA 2.2 et Hibernate 5.6 sur base de donnÃ©es mÃ©moire H2.
 
-Realise par : **Ikram Mellakh**
-
----
-
-## 1. Entites & Modele de Donnees
-
-### Entite UtilisateurCompte
-Cette entite gere les comptes utilisateurs avec leurs roles d'acces et statuts actifs.
-![Entite UtilisateurCompte](docs/images/01-entite-utilisateur.png)
-
-### Entite EspaceTravail
-Cette entite modelise les salles et espaces professionnels (laboratoires, conferences, box agiles).
-![Entite EspaceTravail](docs/images/02-entite-espace.png)
+## EntitÃ©s MÃ©tier et Mappings
+- **UtilisateurCompte** : gestion d'accÃ¨s, dates temporelles `@Temporal` et contraintes d'unicitÃ©.
+- **EspaceTravail** : gestion des espaces de travail et disponibilitÃ©s.
 
 ---
 
-## 2. Cycle de Vie des Entites Implemente
+## Captures d'Ã‰cran IntelliJ IDEA & Terminal CMD
 
-1. **New / Transient -> Managed (Persist)** : Insertion des utilisateurs et espaces de travail en base.
-2. **Managed (Update automatique)** : Modification de la capacite et superficie synchronisee lors du commit.
-3. **JPQL Query** : Selection filtre dynamique des espaces disponibles par capacite minimale.
-4. **Removed (Delete)** : Suppression physique d'une entite via em.remove().
+### 1. EntitÃ© UtilisateurCompte (IntelliJ IDEA)
+![EntitÃ© Utilisateur](docs/images/01-intellij-entity-utilisateur.png)
 
----
+### 2. EntitÃ© EspaceTravail (IntelliJ IDEA)
+![EntitÃ© Espace](docs/images/02-intellij-entity-espace.png)
 
-## 3. Execution et Resultats dans le Terminal
-
-Trace complete du cycle de vie et des requetes SQL generees par Hibernate :
-
-![Execution du projet](docs/images/03-execution-cmd.png)
+### 3. RÃ©sultat des Tests et ExÃ©cution (CMD / PowerShell)
+![RÃ©sultat ExÃ©cution CMD](docs/images/03-cmd-test-result.png)
 
 ---
 
-## 4. Instructions d'Execution
-
-``bash
-# Compilation du projet
-mvn clean compile
-
-# Execution de l'application
-mvn exec:java "-Dexec.mainClass=ma.enset.ikram.tp2.App"
-``
+## Lancement
+```bash
+mvn clean compile exec:java -Dexec.mainClass=ma.enset.ikram.tp2.App
+```
